@@ -1,0 +1,33 @@
+{% extends 'dashboard.html' %}
+{%load crispy_forms_tags %}
+{% block content %}
+<div>
+
+
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Age</th>
+      <th scope="col">Place</th>
+       <th scope="col">DELETE</th>
+      <th scope="col">UPDATE</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in formkey %}
+    <tr>
+
+      <td>{{i.Name}}</td>
+      <td>{{i.Age}}</td>
+      <td>{{i.Place}}</td>
+      <td><button type="button" class="btn btn-outline-danger"><a href="{% url 'delete' i.id %}">DELETE</a></button></td>
+       <td><button type="button" class="btn btn-outline-success"><a href="{% url 'update' i.id %}">UPDATE</a></button></td>
+    </tr>
+  {% endfor %}
+
+  </tbody>
+</table>
+
+  </div>
+{% endblock %}
